@@ -1,0 +1,13 @@
+#!/bin/bash
+. /root/.bashrc
+path_to_executable=$(which ruby)
+if [ -x "$path_to_executable" ] ; then
+   ruby_version=$(ruby -v | cut -d ' ' -f 2 | cut -d 'p' -f 1)
+
+   if [ "$ruby_version" == "2.2.4" ] ; then
+     echo "Ruby version is correct: $ruby_version"
+     exit 0;
+   fi;
+   exit 2;
+fi;
+exit 1;

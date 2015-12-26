@@ -10,6 +10,9 @@ dependencies:
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
     - docker build -t pluto1010/rubybase .
     - mkdir -p ~/docker; docker save pluto1010/rubybase > ~/docker/image.tar
+test:
+  override:
+    - docker run pluto1010/rubybase /test
 
 deployment:
   hub:
